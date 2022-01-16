@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import { useSelector, useDispatch, } from 'react-redux'
-import { ADD_TODO } from './redux/todoSlice'
+import { ADD_TODO, TOGGLE_COMPLETE } from './redux/todoSlice'
 
 function App() {
   const todos = useSelector((state) => state.todoReducer.todoList);
@@ -29,6 +29,7 @@ function App() {
                 <input
                   type="checkbox"
                   checked={task.complete}
+                  onChange={() => dispatch(TOGGLE_COMPLETE(index))}
                 />
                 {task.activity}
               </li>

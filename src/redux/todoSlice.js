@@ -15,10 +15,13 @@ export const todoSlice = createSlice({
             }
             return { ...state, todoList: state.todoList.concat(newTodo) }
         },
+        TOGGLE_COMPLETE: (state, action) => {
+            state.todoList[action.payload].complete = !state.todoList[action.payload].complete
+        }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { ADD_TODO } = todoSlice.actions
+export const { ADD_TODO, TOGGLE_COMPLETE } = todoSlice.actions
 
 export default todoSlice.reducer
