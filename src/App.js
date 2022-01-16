@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import { useSelector, useDispatch, } from 'react-redux'
-import { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TASKS } from './redux/todoSlice'
+import { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TASKS, DELETE_TASKS } from './redux/todoSlice'
 
 function App() {
   const todos = useSelector((state) => state.todoReducer.todoList);
@@ -46,6 +46,7 @@ function App() {
       />
       <button onClick={() => handleSubmit()}>Add Task</button>
       <button onClick={() => dispatch(CLEAR_TASKS())}>Clear Completed Tasks</button>
+      <button onClick={() => dispatch(DELETE_TASKS())}>Delete All Tasks</button>
 
 
     </div>
