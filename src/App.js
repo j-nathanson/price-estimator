@@ -5,7 +5,7 @@ import { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TASKS, DELETE_TASKS, DELETE_SINGLE_TAS
 
 function App() {
   const todos = useSelector((state) => state.todoReducer.todoList);
-  const [todoInput, setTodoInput] = useState('')
+  const [todoInput, setTodoInput] = useState('');
   const dispatch = useDispatch();
 
   console.log(todoInput);
@@ -48,10 +48,11 @@ function App() {
         onChange={(e) => setTodoInput(e.target.value)}
         value={todoInput}
       />
-      <button onClick={() => handleSubmit()}>Add Task</button>
-      <button onClick={() => dispatch(CLEAR_TASKS())}>Clear Completed Tasks</button>
-      <button onClick={() => dispatch(DELETE_TASKS())}>Delete All Tasks</button>
-
+      <div>
+        <button onClick={() => handleSubmit()}>Add Task</button>
+        <button onClick={() => dispatch(CLEAR_TASKS())}>Clear Completed Tasks</button>
+        <button onClick={() => dispatch(DELETE_TASKS())}>Delete All Tasks</button>
+      </div>
 
     </div>
   );
