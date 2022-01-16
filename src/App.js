@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { useSelector, useDispatch, } from 'react-redux'
 import { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TASKS, DELETE_TASKS, DELETE_SINGLE_TASK } from './redux/todoSlice'
-
+// clone
 function App() {
   const todos = useSelector((state) => state.todoReducer.todoList);
   const [todoInput, setTodoInput] = useState('');
