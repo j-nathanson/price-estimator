@@ -15,6 +15,7 @@ function App() {
     if (todoInput.length > 0) {
       dispatch(ADD_TODO(todoInput))
     }
+    setTodoInput('');
   }
 
   return (
