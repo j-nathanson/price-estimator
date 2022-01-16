@@ -17,11 +17,14 @@ export const todoSlice = createSlice({
         },
         TOGGLE_COMPLETE: (state, action) => {
             state.todoList[action.payload].complete = !state.todoList[action.payload].complete
+        },
+        CLEAR_TASKS: (state) => {
+            state.todoList = state.todoList.filter(task => task.complete === false);
         }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { ADD_TODO, TOGGLE_COMPLETE } = todoSlice.actions
+export const { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TASKS } = todoSlice.actions
 
 export default todoSlice.reducer
