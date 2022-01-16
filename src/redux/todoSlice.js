@@ -9,11 +9,11 @@ export const todoSlice = createSlice({
     initialState,
     reducers: {
         ADD_TODO: (state, action) => {
-            // Redux Toolkit allows us to write "mutating" logic in reducers. It
-            // doesn't actually mutate the state because it uses the Immer library,
-            // which detects changes to a "draft state" and produces a brand new
-            // immutable state based off those changes
-            { todoList: state.todoList.concat(action.payload) }
+            let newTodo = {
+                activity: action.payload,
+                complete: false
+            }
+            return { ...state, todoList: state.todoList.concat(newTodo) }
         },
     },
 })
