@@ -23,11 +23,14 @@ export const todoSlice = createSlice({
         },
         DELETE_TASKS: (state) => {
             state.todoList = []
+        },
+        DELETE_SINGLE_TASK: (state, action) => {
+            state.todoList.splice(action.payload, 1);
         }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TASKS, DELETE_TASKS } = todoSlice.actions
+export const { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TASKS, DELETE_TASKS, DELETE_SINGLE_TASK } = todoSlice.actions
 
 export default todoSlice.reducer
