@@ -2,11 +2,13 @@ import './App.css';
 import React, { useState } from 'react';
 import { useSelector, useDispatch, } from 'react-redux'
 // import { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TASKS, DELETE_TASKS, DELETE_SINGLE_TASK } from './redux/todoSlice'
-// clone
+
 function App() {
   // const todos = useSelector((state) => state.todoReducer.todoList);
   // const [todoInput, setTodoInput] = useState('');
-  const [guestNum, setGuestNum] = useState(50)
+  const costPerGuest = useSelector(state => state.estimatorReducer.costs.costPerGuest)
+
+  const [guestNum, setGuestNum] = useState(50);
   const dispatch = useDispatch();
 
 
@@ -26,6 +28,9 @@ function App() {
           onChange={(e) => setGuestNum(e.target.value)}
         />
       </div>
+
+      <h2>Cost per Guest: ${costPerGuest}</h2>
+
 
       <h2>addons</h2>
       <div>

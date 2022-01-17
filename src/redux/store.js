@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import todoReducer from '../redux/todoSlice'
+import estimatorReducer from '../redux/estimatorSlice'
 
 
 
 export const store = configureStore({
     reducer: {
-        todoReducer,
+        estimatorReducer,
     },
 })
