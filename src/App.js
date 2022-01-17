@@ -1,14 +1,12 @@
 import './App.css';
 import React, { useState } from 'react';
 import { useSelector, useDispatch, } from 'react-redux'
-// import { ADD_TODO, TOGGLE_COMPLETE, CLEAR_TASKS, DELETE_TASKS, DELETE_SINGLE_TASK } from './redux/todoSlice'
+
+import { changeGuestNum } from './redux/estimatorSlice'
 
 function App() {
-  // const todos = useSelector((state) => state.todoReducer.todoList);
-  // const [todoInput, setTodoInput] = useState('');
-  const costPerGuest = useSelector(state => state.estimatorReducer.costs.costPerGuest)
-
-  const [guestNum, setGuestNum] = useState(50);
+  const costPerGuest = useSelector(state => state.estimatorReducer.costs.costPerGuest);
+  const guestNum = useSelector(state => state.estimatorReducer.guestNum);
   const dispatch = useDispatch();
 
 
@@ -25,7 +23,7 @@ function App() {
           max="500"
           step="10"
           value={guestNum}
-          onChange={(e) => setGuestNum(e.target.value)}
+          onChange={(e) => dispatch(changeGuestNum(e.target.value))}
         />
       </div>
 
@@ -39,7 +37,7 @@ function App() {
         <button>Desserts</button>
       </div>
 
-      <h2>Final cost</h2>
+      <h2>Final cost: ${guestNum * costPerGuest}</h2>
     </div>
   );
 }
