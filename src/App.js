@@ -14,17 +14,18 @@ function App() {
     <div>
       <h1>price estimator</h1>
       <h2>How many guests will you have?</h2>
-      <h3>Current guest count: {guestNum}</h3>
-      <label htmlFor="guests"> </label>
-      <input
-        id="guests"
-        type="range"
-        min="50"
-        max="500"
-        value={guestNum}
-        onChange={(e) => setGuestNum(e.target.value)}
-      />
-
+      <label htmlFor="guests"> Current guest count: {guestNum} </label>
+      <div>
+        <input
+          id="guests"
+          type="range"
+          min="50"
+          max="500"
+          step="10"
+          value={guestNum}
+          onChange={(e) => setGuestNum(e.target.value)}
+        />
+      </div>
 
       <h2>addons</h2>
       <div>
