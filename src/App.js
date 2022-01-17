@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch, } from 'react-redux'
 
 import { changeGuestNum, toggleSides, toggleEntrees, toggleDessert } from './redux/estimatorSlice'
