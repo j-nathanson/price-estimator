@@ -3,9 +3,13 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     guestNum: 50,
     isSideChecked: false,
+    isEntreeChecked: false,
+    isDessertChecked: false,
     costs: {
         costPerGuest: 14,
-        sideCost: 100
+        sideCost: 100,
+        entreeCost: 200,
+        dessertCost: 300
     }
 }
 
@@ -18,12 +22,17 @@ export const estimatorSlice = createSlice({
         },
         toggleSides: state => {
             state.isSideChecked = !state.isSideChecked
+        },
+        toggleEntrees: state => {
+            state.isEntreeChecked = !state.isEntreeChecked
+        },
+        toggleDessert: state => {
+            state.isDessertChecked = !state.isDessertChecked
         }
 
     },
 })
 
-// Action creators are generated for each case reducer function
-export const { changeGuestNum, toggleSides } = estimatorSlice.actions
+export const { changeGuestNum, toggleSides, toggleEntrees, toggleDessert } = estimatorSlice.actions
 
 export default estimatorSlice.reducer

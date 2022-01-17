@@ -2,19 +2,33 @@ import './App.css';
 import React, { useState } from 'react';
 import { useSelector, useDispatch, } from 'react-redux'
 
-import { changeGuestNum, toggleSides } from './redux/estimatorSlice'
+import { changeGuestNum, toggleSides, toggleEntrees, toggleDessert } from './redux/estimatorSlice'
 
 function App() {
-  const costPerGuest = useSelector(state => state.estimatorReducer.costs.costPerGuest);
+  // SELECT VARIABLES FROM THE STORE
   const guestNum = useSelector(state => state.estimatorReducer.guestNum);
-  const isSideChecked = useSelector(state => state.estimatorReducer.isSideChecked);
+  const costPerGuest = useSelector(state => state.estimatorReducer.costs.costPerGuest);
+
   const sideCost = useSelector(state => state.estimatorReducer.costs.sideCost);
+  const entreeCost = useSelector(state => state.estimatorReducer.costs.entreeCost);
+  const dessertCost = useSelector(state => state.estimatorReducer.costs.dessertCost);
+
+  const isSideChecked = useSelector(state => state.estimatorReducer.isSideChecked);
+  const isEntreeChecked = useSelector(state => state.estimatorReducer.isEntreeChecked);
+  const isDessertChecked = useSelector(state => state.estimatorReducer.isDessertChecked);
+
   const dispatch = useDispatch();
 
   const total = () => {
     let cost = guestNum * costPerGuest;
     if (isSideChecked) {
       cost += sideCost
+    }
+    if (isEntreeChecked) {
+      cost += entreeCost
+    }
+    if (isDessertChecked) {
+      cost += dessertCost
     }
     return cost
   }
@@ -44,9 +58,9 @@ function App() {
         <label htmlFor="sides">sides</label>
         <input type="checkbox" id="sides" onChange={() => dispatch(toggleSides())} />
         <label htmlFor="entrees">entrees</label>
-        <input type="checkbox" id="sides" />
+        <input type="checkbox" id="sides" onChange={() => dispatch(toggleEntrees())} />
         <label htmlFor="desserts">desserts</label>
-        <input type="checkbox" id="sides" />
+        <input type="checkbox" id="sides" onChange={() => dispatch(toggleDessert())} />
       </div>
 
       <h2>Final cost: ${total()}</h2>
